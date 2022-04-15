@@ -151,3 +151,20 @@ int loadData(Product *p) {
     }
     return count;
 }
+
+void saveData(Product *p, int count) {
+    FILE *fp2;
+    fp2 = fopen("product.txt", "w+");
+    for(int i=0; i<count; i++) {
+        if(p[i].price == 0) continue;
+        fprintf(fp2, "%s %s %s %d %d\n",p[i].name, p[i].ex, p[i].weight, p[i].price, p[i].way);
+        #ifdef DEBUG
+                if(i==0) {
+                        printf("=> DEBUGMODE\n");
+                }
+                printf("save : %s %s %s %d %d\n",p[i].name, p[i].ex, p[i].weight, p[i].price, p[i].way);
+        #endif
+    }
+    fclose(fp2);
+    printf("저장됨!\n");
+}
