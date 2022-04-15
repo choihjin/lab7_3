@@ -88,3 +88,26 @@ void searchProduct(Product *p, int count) {
                 printf("=> 검색된 데이터 없음\n");
         }
 }
+
+void searchPrice(Product *p, int count) {
+        int search;
+        int num = 0;
+        printf("검색할 가격대는 (만원단위입력)? ");
+        scanf("%d", &search);
+        #ifdef DEBUG
+                printf("=> DEBUGMODE\n");
+                printf("search = %d ~ %d\n", search, search+9999);
+        #endif
+        printf("===========================\n");
+        for(int i=0; i<count; i++) {
+                if(p[i].price == 0) continue;
+                if(p[i].price >= search && p[i].price <= search+9999) {
+                        printf("%d ", i+1);
+                        readProduct(p[i]);
+                        num++;
+                }
+        }
+        if(num == 0) {
+                printf("=> 검색된 데이터 없음\n");
+        }
+}
