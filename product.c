@@ -3,7 +3,7 @@
 
 int selectMenu() {
         int menu;
-        printf("\n** 과일 쇼핑 **\n");
+        printf("\n*** 과일 쇼핑 ***\n");
         printf("1. 조회\n");
         printf("2. 추가\n");
         printf("3. 수정\n");
