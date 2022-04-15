@@ -1,6 +1,5 @@
 #include "manager.h"
 
-//함수에서 작업할 제품번호를 리턴
 int selectNum(Product *p, int count) {
         int num;
         listProduct(p, count);
