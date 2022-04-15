@@ -130,3 +130,24 @@ void searchWay(Product *p, int count) {
                 printf("=> 검색된 데이터 없음\n");
         }
 }
+
+int loadData(Product *p) {
+    int count=0;
+    FILE *fp;
+    if ((fp = fopen("product.txt", "r"))) {
+        while(1) {
+            fscanf(fp, "%s", p[count].name);
+            fscanf(fp, "%s", p[count].ex);
+            fscanf(fp, "%s", p[count].weight);
+            fscanf(fp, "%d", &p[count].price);
+            fscanf(fp, "%d", &p[count].way);
+            if(feof(fp)) break;
+            count++;
+        }
+        fclose(fp);
+        printf("=> 로딩 성공!\n");
+    } else {
+        printf("\n=> 파일 없음\n");
+    }
+    return count;
+}
